@@ -1,3 +1,4 @@
+'''
 from django import forms
 from .models import Listing
 
@@ -31,5 +32,5 @@ class ListingsForm(forms.ModelForm):
         if isinstance(location, Point):
             self.initial['latitude'] = location.tuple[0]
             self.initial['longitude'] = location.tuple[1]
-        
+'''      
         
