@@ -8,8 +8,11 @@ class ListingListView(generics.ListAPIView):
     queryset = Listing.objects.all().order_by('-date_posted')
     serializer_class = ListingSerializer
     
-# Create your views here.
 class ListingCreateView(generics.CreateAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
+    
+class ListingDetailView(generics.RetrieveAPIView):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
 

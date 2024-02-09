@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from listings.views import ListingListView, ListingCreateView
+from listings.views import ListingListView, ListingCreateView, ListingDetailView
+from users.api.views import ProfileDetailView, ProfileListView, ProfileUpdateView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,6 +27,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/listings/', ListingListView.as_view()),
     path('api/listings/create/', ListingCreateView.as_view()),
+    path('api/listings/<int:pk>/', ListingDetailView.as_view()),
+    
+    path('api/profiles/', ProfileListView.as_view()),
+    path('api/profiles/<int:seller>/', ProfileDetailView.as_view()),
+    path('api/profiles/<int:seller>/update/', ProfileUpdateView.as_view()),
     
     # url for djoser
     path('api-auth-djoser/', include('djoser.urls')),
