@@ -15,4 +15,12 @@ class ListingCreateView(generics.CreateAPIView):
 class ListingDetailView(generics.RetrieveAPIView):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
+    
+class ListingDeletelView(generics.DestroyAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
+
+class ListingUpdatelView(generics.UpdateAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
 

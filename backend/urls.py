@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from listings.views import ListingListView, ListingCreateView, ListingDetailView
+from listings.views import ListingListView, ListingCreateView, ListingDetailView, ListingDeletelView, ListingUpdatelView
 from users.api.views import ProfileDetailView, ProfileListView, ProfileUpdateView
 
 from django.conf import settings
@@ -28,6 +28,8 @@ urlpatterns = [
     path('api/listings/', ListingListView.as_view()),
     path('api/listings/create/', ListingCreateView.as_view()),
     path('api/listings/<int:pk>/', ListingDetailView.as_view()),
+    path('api/listings/<int:pk>/delete/', ListingDeletelView.as_view()),
+    path('api/listings/<int:pk>/update/', ListingUpdatelView.as_view()),
     
     path('api/profiles/', ProfileListView.as_view()),
     path('api/profiles/<int:seller>/', ProfileDetailView.as_view()),
